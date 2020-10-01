@@ -5,7 +5,8 @@ import os
 from decouple import config  # noqa
 
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))))
 
 
 def base_dir_join(*args):
@@ -25,7 +26,7 @@ AUTH_USER_MODEL = "users.User"
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
-    "exampleapp.apps.ExampleappConfig",
+    # "exampleapp.apps.ExampleappConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     "import_export",
     "common",
     "users",
+    "memories"
 ]
 
 MIDDLEWARE = [
@@ -73,10 +75,10 @@ TEMPLATES = [
 WSGI_APPLICATION = "memoirem.wsgi.application"
 
 AUTH_PASSWORD_VALIDATORS = [
-    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",},
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator", },
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator", },
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator", },
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator", },
 ]
 
 LANGUAGE_CODE = "en-us"
