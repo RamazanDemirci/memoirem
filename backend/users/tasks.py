@@ -1,6 +1,6 @@
 from django.core import management
 
-from memoirem import celery_app
+from memoirem import celery
 
 
 @celery_app.task
