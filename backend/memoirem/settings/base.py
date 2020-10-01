@@ -23,7 +23,8 @@ ADMINS = (("Admin", "admin@memoirem.com"),)
 
 AUTH_USER_MODEL = "users.User"
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     # "exampleapp.apps.ExampleappConfig",

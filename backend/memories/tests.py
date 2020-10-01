@@ -1,6 +1,7 @@
 from django.test import TestCase
-from memories.models import Memory
 import datetime
+from memories.models import Memory
+
 # Create your tests here.
 
 
