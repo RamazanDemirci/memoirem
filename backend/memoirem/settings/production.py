@@ -15,7 +15,8 @@ DATABASES = {
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
-ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
+#ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
+ALLOWED_HOSTS = ["*"]
 
 STATIC_ROOT = base_dir_join("staticfiles")
 STATIC_URL = "/static/"
@@ -79,7 +80,7 @@ LOGGING = {
         },
     },
     "handlers": {
-        "null": {"class": "logging.NullHandler",},
+        "null": {"class": "logging.NullHandler", },
         "mail_admins": {
             "level": "ERROR",
             "class": "django.utils.log.AdminEmailHandler",
@@ -94,8 +95,8 @@ LOGGING = {
     },
     "loggers": {
         "": {"handlers": ["console"], "level": "INFO"},
-        "django.security.DisallowedHost": {"handlers": ["null"], "propagate": False,},
-        "django.request": {"handlers": ["mail_admins"], "level": "ERROR", "propagate": True,},
+        "django.security.DisallowedHost": {"handlers": ["null"], "propagate": False, },
+        "django.request": {"handlers": ["mail_admins"], "level": "ERROR", "propagate": True, },
         "log_request_id.middleware": {
             "handlers": ["console"],
             "level": "DEBUG",
@@ -107,4 +108,5 @@ LOGGING = {
 JS_REVERSE_EXCLUDE_NAMESPACES = ["admin"]
 
 # Sentry
-sentry_sdk.init(dsn=SENTRY_DSN, integrations=[DjangoIntegration()], release=COMMIT_SHA)
+sentry_sdk.init(dsn=SENTRY_DSN, integrations=[
+                DjangoIntegration()], release=COMMIT_SHA)

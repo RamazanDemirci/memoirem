@@ -1,8 +1,8 @@
 from django.core import management
 
-from memoirem import celery_app
+from memoirem.celery import app
 
 
-@celery_app.task
+@app.task
 def clearsessions():
     management.call_command('clearsessions')
