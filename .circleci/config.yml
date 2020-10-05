@@ -66,11 +66,11 @@ jobs:
       #    environment:
       #      SKIP: prospector,isort,eslint,missing-migrations
       - run:
-          command: (cd backend; python manage.py has_missing_migrations --ignore authtools)
+          command: (python ./backend/manage.py has_missing_migrations --ignore authtools)
           environment:
             DJANGO_SETTINGS_MODULE: 'memoirem.settings.local_base'
       - run:
-          command: (cd backend; python manage.py check --deploy)
+          command: (python ./backend/manage.py check --deploy)
           environment:
             DJANGO_SETTINGS_MODULE: 'memoirem.settings.production'
             SECRET_KEY: "$(python -c 'import uuid; print(uuid.uuid4().hex + uuid.uuid4().hex)')"
@@ -80,14 +80,14 @@ jobs:
             SENDGRID_PASSWORD: 'test'
             REDIS_URL: 'redis://'
       - run:
-          command: (cd backend; coverage run manage.py test)
+          command: (coverage run ./backend/manage.py test memoirem, momories)
       #- run:
       #    command: npm run test
-      #- run:
-      #    command: 
-      #      mkdir -p test-reports/
-      #      coverage xml -o test-reports/results.xml
-      #    when: always
+      - run:
+          command: 
+            mkdir -p test-reports/
+            coverage xml -o test-reports/results.xml
+          when: always
       - store_test_results:
           path: test-reports
       - store_artifacts:

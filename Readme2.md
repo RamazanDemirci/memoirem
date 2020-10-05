@@ -22,3 +22,7 @@ docker-compose run --rm backend python manage.py migrate
 - create superuser
 docker-compose run --rm backend python manage.py createsuperuser
 
+
+- refs : 
+https://github.com/vintasoftware/django-react-boilerplate
+
