@@ -23,6 +23,9 @@ docker-compose run --rm backend python manage.py migrate
 docker-compose run --rm backend python manage.py createsuperuser
 
 
-- refs : 
+- django boilerplate refs
 https://github.com/vintasoftware/django-react-boilerplate
+
+- django tests refs 
+https://realpython.com/testing-in-django-part-1-best-practices-and-examples/
 

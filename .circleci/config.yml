@@ -80,7 +80,7 @@ jobs:
             SENDGRID_PASSWORD: 'test'
             REDIS_URL: 'redis://'
       - run:
-          command: (coverage run ./backend/manage.py test memoirem, momories)
+          command: (coverage run ./backend/manage.py test memories)
       #- run:
       #    command: npm run test
       - run:
