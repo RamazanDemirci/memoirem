@@ -1,0 +1,10 @@
+[MASTER]
+
+ignore=migrations, ./backend/common/utils/tests
+
+disable=
+    C0114, # missing-module-docstring
+    C0115, # missing-class-docstring
+    C0116, # missing-function-docstring
+    R0901, # too-many-ancestors
+    #E1101, # no-member
