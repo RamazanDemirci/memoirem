@@ -1,5 +1,4 @@
-export const sum = (x, y) => x + y; //todo:import react module and use in test procedure
-export const diff = (x, y) => x - y;
+import { sum, diff } from '../math';
 
 describe('Examining the syntax of Jest tests', () => {
 
