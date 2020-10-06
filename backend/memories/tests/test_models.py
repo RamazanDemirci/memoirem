@@ -7,7 +7,6 @@ from memories.models import Question
 
 
 class QuestionModelTests(TestCase):
-
     def test_was_published_recently_with_old_question(self):
         """
         was_published_recently() returns False for questions whose pub_date

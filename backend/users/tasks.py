@@ -5,4 +5,4 @@ from memoirem.celery import app
 
 @app.task
 def clearsessions():
-    management.call_command('clearsessions')
+    management.call_command("clearsessions")
