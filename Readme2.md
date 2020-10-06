@@ -25,5 +25,9 @@ docker-compose start -f service_name
 * django tests refs
   https://realpython.com/testing-in-django-part-1-best-practices-and-examples/
 
-- prettier check
+- prettier check(\*)
   npm run lint
+
+---
+
+- - this commands shoul be run before commit!
