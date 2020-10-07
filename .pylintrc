@@ -1,0 +1,17 @@
+[MASTER]
+
+ignore=migrations, ./backend/common/utils/tests
+    
+disable=
+    W0613, # unused-argument
+    C0103, # invalid-name
+    C0114, # missing-module-docstring
+    C0115, # missing-class-docstring
+    C0116, # missing-function-docstring
+    R0901, # too-many-ancestors
+    R0903, # too-few-public-methods
+    E1101, # no-member
+    
+    # pylint: disable=too-few-public-methods
+
+[MESSAGES CONTROL]

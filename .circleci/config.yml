@@ -19,7 +19,7 @@ jobs:
           command: sudo chown -R circleci:circleci /usr/local/lib/python3.7/site-packages
       - run:
           command: pip install requests pip-tools --upgrade
-      
+
       - restore_cache:
           keys:
             - v1-pip-cache-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
@@ -47,7 +47,7 @@ jobs:
           key: npm-cache-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - node_modules
-      
+
       - run:
           command: npm run build
       - run:
@@ -61,16 +61,16 @@ jobs:
       # imports check
       - run:
           command: isort **/*.py --check-only
-      #- run:
-      #    command: pre-commit run --all-files
-      #    environment:
-      #      SKIP: prospector,isort,eslint,missing-migrations
       - run:
-          command: (cd backend; python manage.py has_missing_migrations --ignore authtools)
+          command: pre-commit run --all-files
+          environment:
+            SKIP: prospector,isort,eslint,missing-migrations
+      - run:
+          command: (python ./backend/manage.py has_missing_migrations --ignore authtools)
           environment:
             DJANGO_SETTINGS_MODULE: 'memoirem.settings.local_base'
       - run:
-          command: (cd backend; python manage.py check --deploy)
+          command: (python ./backend/manage.py check --deploy)
           environment:
             DJANGO_SETTINGS_MODULE: 'memoirem.settings.production'
             SECRET_KEY: "$(python -c 'import uuid; print(uuid.uuid4().hex + uuid.uuid4().hex)')"
@@ -80,14 +80,13 @@ jobs:
             SENDGRID_PASSWORD: 'test'
             REDIS_URL: 'redis://'
       - run:
-          command: (cd backend; coverage run manage.py test)
+          command: (coverage run ./backend/manage.py test memories)
       - run:
           command: npm run test
-      #- run:
-      #    command: |
-      #      mkdir -p test-reports/
-      #      coverage xml -o test-reports/results.xml
-      #    when: always
+      - run:
+          command: mkdir -p test-reports/
+            coverage xml test-reports/results.xml
+          when: always
       - store_test_results:
           path: test-reports
       - store_artifacts:

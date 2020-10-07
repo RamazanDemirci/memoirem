@@ -23,10 +23,10 @@ ADMINS = (("Admin", "admin@memoirem.com"),)
 
 AUTH_USER_MODEL = "users.User"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
-    # "exampleapp.apps.ExampleappConfig",
+    "memories.apps.MemoriesConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     "import_export",
     "common",
     "users",
-    "memories"
 ]
 
 MIDDLEWARE = [
