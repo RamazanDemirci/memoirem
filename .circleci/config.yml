@@ -53,8 +53,8 @@ jobs:
       - run:
           command: npm run lint
       # style check
-      #- run:
-      #    command: prospector --messages-only
+      - run:
+          command: prospector --messages-only
       # security checks
       - run:
           command: bandit -r .
