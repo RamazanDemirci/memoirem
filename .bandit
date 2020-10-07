@@ -1,15 +1,15 @@
 [bandit]
 exclude: test_*.py,./venv/,./env/,./node_modules/,./cacheback/,./.env,./.venv
-skips: B101,B102,B105,B110,B311,B405,B406,B408,B602,B603,B607
+skips: B101,B105,B110,B311
 # B101: assert
-# B102:exec_used
+# B102: exec_used
 # B105: hardcoded_password_string
-# B110:try_except_pass
+# B110: try_except_pass
 # B311: random
-# B404:blacklist
-# B405:blacklist
-# B406:blacklist
-# B408:blacklist
-# B602:subprocess_popen_with_shell_equals_true
-# B603:subprocess_without_shell_equals_true
-# B607:start_process_with_partial_path
+# B404: blacklist
+# B405: blacklist
+# B406: blacklist
+# B408: blacklist
+# B602: subprocess_popen_with_shell_equals_true
+# B603: subprocess_without_shell_equals_true
+# B607: start_process_with_partial_path
