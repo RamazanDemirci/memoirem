@@ -31,3 +31,9 @@ docker-compose start -f service_name
 ---
 
 - - this commands shoul be run before commit!
+
+* switch master
+  git checkout master
+* be sure nothing to commit
+  git status
+  -git merge circleci_denemeler
